@@ -15,6 +15,8 @@ import InsuranceTypes from "./pages/InsuranceTypes";
 import Messages from "./pages/Messages";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import NewInsuranceRequest from "./pages/NewInsuranceRequest";
+import RegistrationForm from "./components/forms/RegistrationForm";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +37,8 @@ const App = () => (
             <Route path="/insurance-types" element={<InsuranceTypes />} />
             <Route path="/messages" element={<Messages />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/new-insurance" element={<NewInsuranceRequest />} />
+            <Route path="/register" element={<RegistrationForm />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
