@@ -1,8 +1,9 @@
-
 import React, { useState } from 'react';
 import InsuranceSelectionForm from '@/components/forms/InsuranceSelectionForm';
 import AutoInsuranceForm from '@/components/forms/dynamic/AutoInsuranceForm';
 import QuoteDisplay from '@/components/forms/QuoteDisplay';
+import ElectronicSignature from '@/components/forms/ElectronicSignature';
+import Button from '@/components/Button';
 
 type WizardStep = 'selection' | 'form' | 'quote' | 'signature' | 'payment';
 
@@ -50,6 +51,11 @@ const InsuranceWizard: React.FC = () => {
     setCurrentStep('signature');
   };
 
+  const handleSignatureComplete = (signatureData: any) => {
+    console.log('Signature complétée:', signatureData);
+    setCurrentStep('payment');
+  };
+
   const handleQuoteModify = () => {
     setCurrentStep('form');
   };
@@ -89,10 +95,21 @@ const InsuranceWizard: React.FC = () => {
       )}
       
       {currentStep === 'signature' && (
+        <div className="p-6">
+          <ElectronicSignature
+            document={quoteData}
+            onSignatureComplete={handleSignatureComplete}
+            onCancel={() => setCurrentStep('quote')}
+          />
+        </div>
+      )}
+      
+      {currentStep === 'payment' && (
         <div className="flex items-center justify-center min-h-screen">
           <div className="text-center">
-            <h2 className="text-2xl font-bold mb-4">Signature électronique</h2>
-            <p className="text-gray-600">Cette fonctionnalité sera implémentée prochainement</p>
+            <h2 className="text-2xl font-bold mb-4">Paiement sécurisé</h2>
+            <p className="text-gray-600 mb-4">Redirection vers notre partenaire de paiement...</p>
+            <Button>Procéder au paiement</Button>
           </div>
         </div>
       )}

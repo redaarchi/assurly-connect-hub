@@ -39,6 +39,9 @@ const App = () => (
             <Route path="/settings" element={<Settings />} />
             <Route path="/new-insurance" element={<NewInsuranceRequest />} />
             <Route path="/register" element={<RegistrationForm />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/user-management" element={<UserManagementPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
