@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/hooks/use-toast';
-import Avatar from '@/components/ui/Avatar';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { apiService } from '@/services/apiService';
 import { PersonalInfo } from '@/types/api';
 import { Camera, Mail, Phone, MapPin, Calendar, User, Edit } from 'lucide-react';
@@ -130,13 +130,15 @@ const PersonalInfoCard: React.FC = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-6">
             <div className="relative group">
-              <Avatar
-                src={personalInfo.profileImage}
-                alt={`${personalInfo.firstName} ${personalInfo.lastName}`}
-                size="xl"
-                fallbackInitials={getInitials(personalInfo.firstName, personalInfo.lastName)}
-                className="ring-4 ring-white shadow-lg"
-              />
+              <Avatar className="w-20 h-20 ring-4 ring-white shadow-lg">
+                <AvatarImage 
+                  src={personalInfo.profileImage} 
+                  alt={`${personalInfo.firstName} ${personalInfo.lastName}`} 
+                />
+                <AvatarFallback className="bg-gradient-to-br from-blue-500 to-blue-600 text-white text-xl font-semibold">
+                  {getInitials(personalInfo.firstName, personalInfo.lastName)}
+                </AvatarFallback>
+              </Avatar>
               <label className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
                 <Camera className="text-white" size={20} />
                 <input

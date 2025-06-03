@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import InsuranceSelectionForm from '@/components/forms/InsuranceSelectionForm';
 import AutoInsuranceForm from '@/components/forms/dynamic/AutoInsuranceForm';
 import QuoteDisplay from '@/components/forms/QuoteDisplay';
-import ElectronicSignature from '@/components/forms/ElectronicSignature';
+import ElectronicSignature from '@/components/signature/ElectronicSignature';
 import Button from '@/components/Button';
 
 type WizardStep = 'selection' | 'form' | 'quote' | 'signature' | 'payment';

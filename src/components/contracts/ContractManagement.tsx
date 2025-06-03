@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,7 +14,7 @@ interface Contract {
   startDate: Date;
   endDate: Date;
   premium: number;
-  details: any;
+  details: Record<string, string>;
   documents: string[];
 }
 

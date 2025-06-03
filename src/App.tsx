@@ -17,6 +17,9 @@ import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import NewInsuranceRequest from "./pages/NewInsuranceRequest";
 import RegistrationForm from "./components/forms/RegistrationForm";
+import Support from "./pages/Support";
+import Notifications from "./pages/Notifications";
+import UserManagementPage from "./pages/UserManagement";
 
 const queryClient = new QueryClient();
 
